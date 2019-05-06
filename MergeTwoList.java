@@ -9,12 +9,6 @@ Time Complexity: O(Min(Length of L1, Length of L2))
 Space Complexity: O(1)
 */
 
-
-
-
-
-
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {
