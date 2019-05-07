@@ -44,26 +44,30 @@ public class Solution {
         
         ListNode slow=head,fast=head;
         
-        //we will increase fast by two so there may be condition of fast equal to null or fast.next equals null so for cycle this condition should not occur as cycle don't terminates
-        
+        /*we will increase fast by two so there may be condition of fast equal to null or 
+        fast.next equals null so for cycle this condition should not occur as cycle don't terminates*/    
         while(fast!=null && fast.next!=null){
             //increse slow by 1 and fast by 2
             slow=slow.next;
+         
             fast=fast.next.next;
-            //if slow becomes equal to fast it means cycle is present
-            if(fast==slow){
+            
+         //if slow becomes equal to fast it means cycle is present
+            if(fast == slow){
          //to find the length of cycle move slow by one keeping fast constant and count the steps until they both become equal again       
-                slow=slow.next;
-                int count=1;
-                while(slow!=fast){
-                    slow=slow.next;
+                slow = slow.next;
+                int count = 1;
+                while(slow != fast){
+                    slow = slow.next;
                     count++;
                 }
-                System.out.println(count);
-                //we will increase head and slow both by 1 and the node where they will be equal will be the starting point of the cycle
-                //we have its mathematical proof
-                while(head!=slow){
-                    head=head.next;
+                System.out.println("cycle length" + count);
+             
+                /*we will increase head and slow both by 1 and the node where they will be equal will 
+                be the starting point of the cycle.
+                we have its mathematical proof*/
+                while(head != slow){
+                    head = head.next;
                     slow = slow.next;
                 }
                 return head;
