@@ -1,4 +1,4 @@
-Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+/*Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
 
 Given linked list -- head = [4,5,1,9], which looks like following:
 
@@ -38,11 +38,13 @@ Space complexity = O(1)
  *     ListNode(int x) { val = x; }
  * }
  */
+
 class Solution {
     public void deleteNode(ListNode node) {
-        //it is impossible to delete a node without modifying its predecessor's next pointer and for that its need to start from head
-        //so here we will delete its succesor as it is more easy
-        //we will copy the value of succesor in node val
+        /*it is impossible to delete a node without modifying its predecessor's next 
+         pointer and for that its need to start from head
+         so here we will delete its succesor as it is more easy
+         we will copy the value of succesor in node val */
         node.val=node.next.val;
         //and then delete the successor node i.e node next will be given the address of successor's next 
         node.next=node.next.next;
