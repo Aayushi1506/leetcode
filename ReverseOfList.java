@@ -22,18 +22,19 @@ class Solution {
     public ListNode reverseList(ListNode head) {
       //three pointers one pointing to head and two pointing null 
        ListNode current = head,ptr=null,prev=null;
-        while(current!=null){
+        while(current != null){
             //ptr points to next node of current
-            ptr=current.next;
+            ptr = current.next;
             //give current next the address of prev
-            current.next=prev;
+            current.next = prev;
             //point prev to the node pointed by current
-            prev=current;
+            prev = current;
             //point current to the the node to which ptr is pointing
             current = ptr;
         }
-        //as prev is poiting to the last node or first node of reversed list so head will point it and head will be returned
-        head=prev;
+        /*as prev is poiting to the last node or first node of reversed list so head will 
+        point it and head will be returned*/
+        head = prev;
         return head;
     }
 }
@@ -56,7 +57,8 @@ class Solution {
             ListNode nextnode = head.next;
            // head node next will given null so it will not point any node
             head.next=null;
-            // now to reverse the rest of list starting from nextnode again the method will be called and nextnode will be given as a head
+            /* now to reverse the rest of list starting from nextnode again the method will be 
+            called and nextnode will be given as a head*/
             ListNode rest = reverseList(nextnode);
             //when the condition of 1 element in a list is satisfied i.e head.next is null head will be returned and that recursion will be poped from stack
             //now head will be the node before nextnode so its next will be given the address of head and in this fashion the given list is reversed 
